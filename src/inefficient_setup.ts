@@ -3,8 +3,8 @@ import { rndUser, User } from "./random";
 import assert from "assert";
 
 // Going OOM
-// const LIMIT = 10_000_000;
-const LIMIT = 1_000_000;
+const LIMIT = 10_000_000;
+// const LIMIT = 1_000_000;
 
 console.time();
 
@@ -31,6 +31,7 @@ function memoryInefficient__arrayToCSV<T extends object>(data: T[]) {
     return csv;
 }
 
+console.log("Generating data...");
 const userCSV = memoryInefficient__arrayToCSV(users);
 fs.writeFileSync("inefficient.csv", userCSV);
 
