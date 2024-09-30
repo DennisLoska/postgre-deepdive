@@ -1,0 +1,13 @@
+{
+    "transforms": [
+        {
+            "mode": "sql",
+            "include": "queries/**/*.sql",
+            "emitTemplate": "{{dir}}/{{name}}.queries.ts"
+        }
+    ],
+    "srcDir": "./src/",
+    "failOnError": false,
+    "camelCaseColumnNames": false,
+    "dbUrl": "postgres://dennis:roger_that@localhost:5432/pg_mastery"
+}
