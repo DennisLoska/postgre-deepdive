@@ -2,6 +2,7 @@
     "name": "postgre-deepdive",
     "version": "1.0.0",
     "description": "n+1",
+    "type": "module",
     "main": "src/main.ts",
     "scripts": {
         "start": "npx vite-node src/main.ts",

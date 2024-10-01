@@ -40,6 +40,22 @@ function main() {
         fs.appendFileSync(commentFD, commentRow);
     }
 
+    // Thanks Abdo :D
+
+    // const userWriter = fs.createWriteStream("users.csv", { flags: "w" });
+    // const commentWriter = fs.createWriteStream("comments.csv", { flags: "w" });
+    //
+    // for (const item of generator) {
+    //     userWriter.write(item.row);
+    //
+    //     const comment = rndComment(BigInt(item.id), BigInt(random(1, LIMIT)));
+    //     const commentRow = rowify(comment, item.id);
+    //     commentWriter.write(commentRow);
+    // }
+
+    // userWriter.end();
+    // commentWriter.end();
+
     console.timeEnd();
 }
 

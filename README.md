@@ -9,6 +9,7 @@ Useful `psql` commands:
 -   \d `table_name` to show all columns
 -   \dt to list all tables
 -   \du to list all db users
+-   \l to list all databases
 
 (Postgre)SQL syntax specific commands:
 

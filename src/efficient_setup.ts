@@ -30,6 +30,9 @@ function main() {
         fs.appendFileSync(commentFD, rowify(comment, i));
     }
 
+    fs.closeSync(userFD);
+    fs.closeSync(commentFD);
+
     console.timeEnd();
 }
 
