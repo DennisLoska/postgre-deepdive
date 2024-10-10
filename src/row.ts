@@ -1,4 +1,4 @@
-export function rowify<T extends object>(item: T, pos: number) {
+export function rowify(item: object, pos: number) {
     let row = "";
 
     const keys = Object.keys(item);

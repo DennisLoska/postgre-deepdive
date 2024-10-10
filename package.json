@@ -7,7 +7,7 @@
     "scripts": {
         "start": "npx vite-node src/main.ts",
         "pg-watch": "npx pgtyped -w -c config.json",
-        "start-pg": "docker stop pg_mastery || true && docker rm pg_mastery || true && docker run --name pg_mastery -d -p 5432:5432 pg_mastery",
+        "start-pg": "docker run --name pg_mastery -v \"$(pwd)/db\":/var/lib/postgresql/data -d pg_mastery",
         "build-pg": "docker stop pg_mastery || true && docker rm pg_mastery || true && docker build --no-cache -t pg_mastery .",
         "attach-pg": "docker exec -it pg_mastery psql -U dennis pg_mastery",
         "format": "npx prettier --write .",
