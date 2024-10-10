@@ -36,7 +36,6 @@ async function main() {
 
         const canContinueUser = userWriter.write(item.row);
 
-        // TODO replace with setTimeout to see if still works just because inovling event loop
         if (!canContinueUser) {
             await waitDrain(userWriter);
         }
