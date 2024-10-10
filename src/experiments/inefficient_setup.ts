@@ -1,5 +1,5 @@
 import fs from "fs";
-import { rndUser, User } from "./random";
+import { rndUser, User } from "../random";
 import assert from "assert";
 
 // Going OOM

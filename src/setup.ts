@@ -4,7 +4,7 @@ import { rndComment, rndUser } from "./random";
 import { rowify } from "./row";
 
 // const LIMIT = 20_000_000;
-const LIMIT = 10_000_000;
+const LIMIT = 50_000_000;
 // const LIMIT = 100_000;
 
 type Func<T> = (id: bigint) => T;
@@ -25,8 +25,8 @@ async function main() {
     console.log("Generating data...");
 
     const generator = csvGenerator(rndUser, LIMIT);
-    const userWriter = fs.createWriteStream("users4.csv", { flags: "w" });
-    const commentWriter = fs.createWriteStream("comments4.csv", { flags: "w" });
+    const userWriter = fs.createWriteStream("users.csv", { flags: "w" });
+    const commentWriter = fs.createWriteStream("comments.csv", { flags: "w" });
 
     let counter = 0;
     for (const item of generator) {
@@ -34,12 +34,12 @@ async function main() {
             console.log(process.memoryUsage().rss);
         }
 
-        const canContinueUser = userWriter.write(item.row);
+        // const canContinueUser = userWriter.write(item.row);
 
-        if (!canContinueUser) {
-            await waitDrain(userWriter);
-        }
-
+        // if (!canContinueUser) {
+        //     await waitDrain(userWriter);
+        // }
+        //
         const comment = rndComment(BigInt(item.id), BigInt(random(1, LIMIT)));
         const commentRow = rowify(comment, item.id);
         const canContinueComment = commentWriter.write(commentRow);

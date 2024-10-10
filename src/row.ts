@@ -10,7 +10,7 @@ export function rowify(item: object, pos: number) {
 
     for (let j = 0; j < keys.length; j++) {
         const col = item[keys[j]];
-        if (col instanceof Date) row = row.concat(`${col.toISOString()},`);
+        if (col instanceof Date) row = row.concat(`${col.toISOString()}`);
         else row = row.concat(`${col},`);
     }
 

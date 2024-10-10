@@ -32,7 +32,7 @@ export function rndComment(commentId: bigint, userId: bigint): Comment {
     return {
         id: commentId,
         user_id: userId,
-        value: faker.hacker.phrase(),
+        value: faker.hacker.phrase().replace(",", ""),
         timestamp: faker.date.recent(),
     };
 }
