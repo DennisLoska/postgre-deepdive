@@ -1,5 +1,5 @@
 import fs from "fs";
-import { random } from "lodash";
+import random from "lodash/random";
 import { rndComment, rndUser } from "./random";
 import { rowify } from "./row";
 
@@ -18,12 +18,14 @@ function main() {
     }
 
     console.log("Generating data...");
-    const userFD = fs.openSync("users2.csv", "a");
-    const commentFD = fs.openSync("comments2.csv", "a");
+    const userFD = fs.openSync("users2.csv", "a+");
+    const commentFD = fs.openSync("comments2.csv", "a+");
 
     for (let i = 1; i <= LIMIT; i++) {
         const user = rndUser(BigInt(i));
         fs.appendFileSync(userFD, rowify(user, i));
+
+        // fs.write()
 
         // relation with user
         const comment = rndComment(BigInt(i), BigInt(random(1, LIMIT)));

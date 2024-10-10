@@ -1,4 +1,4 @@
-import fs, { WriteStream } from "fs";
+import fs from "fs";
 import { random } from "lodash";
 import { rndComment, rndUser } from "./random";
 import { rowify } from "./row";
@@ -14,19 +14,22 @@ function* csvGenerator<T extends object>(cb: Func<T>, limit: number) {
     }
 }
 
-function waitDrain(stream: WriteStream) {
-    return new Promise((resolve) => {
-        stream.once("drain", resolve);
-    });
-}
-
 async function main() {
     console.time();
-    console.log("Generating data...");
 
+    try {
+        fs.unlinkSync("users.csv");
+        fs.unlinkSync("comments.csv");
+    } catch (error) {
+        console.log(error.message);
+    }
+
+    console.log("Generating data...");
+    const userFD = fs.openSync("users.csv", "a");
+    const commentFD = fs.openSync("comments.csv", "a");
+
+    // overkill DI I know, just wanted to make it generic
     const generator = csvGenerator(rndUser, LIMIT);
-    const userWriter = fs.createWriteStream("users4.csv", { flags: "w" });
-    const commentWriter = fs.createWriteStream("comments4.csv", { flags: "w" });
 
     let counter = 0;
     for (const item of generator) {
@@ -34,26 +37,14 @@ async function main() {
             console.log(process.memoryUsage().rss);
         }
 
-        const canContinueUser = userWriter.write(item.row);
+        fs.appendFileSync(userFD, item.row);
 
-        // TODO replace with setTimeout to see if still works just because inovling event loop
-        if (!canContinueUser) {
-            await waitDrain(userWriter);
-        }
-
+        // relation with user
         const comment = rndComment(BigInt(item.id), BigInt(random(1, LIMIT)));
         const commentRow = rowify(comment, item.id);
-        const canContinueComment = commentWriter.write(commentRow);
-
-        if (!canContinueComment) {
-            await waitDrain(commentWriter);
-        }
-
+        fs.appendFileSync(commentFD, commentRow);
         counter++;
     }
-
-    userWriter.end();
-    commentWriter.end();
 
     console.timeEnd();
 }
