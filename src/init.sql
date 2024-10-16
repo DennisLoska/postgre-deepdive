@@ -18,8 +18,10 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'roles') THEN
         CREATE TABLE roles (
             id BIGINT PRIMARY KEY,
+            user_id BIGINT,
             name VARCHAR(100),
             privileges VARCHAR(100),
+            FOREIGN KEY (user_id) REFERENCES users(id)
         );
     END IF;
     IF NOT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'comments') THEN
@@ -33,5 +35,5 @@ BEGIN
     END IF;
 END $$;
 
-INSERT INTO users (name, email) VALUES ('Rapunzel', 'rapunzel@hightower.com');
-INSERT INTO users (name, email) VALUES ('Snow White', 'snowwhite@fairytale.com');
+-- INSERT INTO users (name, email) VALUES ('Rapunzel', 'rapunzel@hightower.com');
+-- INSERT INTO users (name, email) VALUES ('Snow White', 'snowwhite@fairytale.com');
