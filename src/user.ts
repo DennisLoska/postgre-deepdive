@@ -1,4 +1,5 @@
 import { Client } from "pg";
+import { sql } from "@pgtyped/runtime";
 import {
     DateOrString,
     findUserByEmail,
@@ -21,11 +22,26 @@ async function getUserByEmail(email: string, client: Client) {
 }
 
 async function getUsersByBirthdate(birthdate: DateOrString, client: Client) {
-    return await findUsersByBirthdate.run({ birthdate }, client);
+    return findUsersByBirthdate.run({ birthdate }, client);
 }
 
 async function getUsersByYearOfBirth(year: NumberOrString, client: Client) {
     return findUsersByYearOfBirth.run({ year }, client);
+}
+
+async function getUsersWithComments(minCount: number, client: Client) {
+    const query = sql`
+        SELECT users.id, comments.value
+        FROM users
+        INNER JOIN comments ON users.id = comments.user_id
+        WHERE users.id IN (
+            SELECT user_id
+            FROM comments
+            GROUP BY user_id
+            HAVING COUNT(id) > $minCount
+        );`;
+
+    return query.run({ minCount }, client);
 }
 
 export default {
@@ -33,4 +49,5 @@ export default {
     getUserByEmail,
     getUsersByBirthdate,
     getUsersByYearOfBirth,
+    getUsersWithComments,
 };
