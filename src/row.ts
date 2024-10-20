@@ -8,10 +8,14 @@ export function rowify(item: object, pos: number) {
         row = row.concat(`${header}\n`);
     }
 
-    for (let j = 0; j < keys.length; j++) {
-        const col = item[keys[j]];
-        if (col instanceof Date) row = row.concat(`${col.toISOString()}`);
+    for (let i = 0; i < keys.length; i++) {
+        const col = item[keys[i]];
+        if (col instanceof Date) row = row.concat(`${col.toISOString()},`);
         else row = row.concat(`${col},`);
+
+        if (i === keys.length - 1) {
+            row = row.slice(0, -1);
+        }
     }
 
     return `${row}\n`;

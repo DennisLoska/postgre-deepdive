@@ -19,8 +19,8 @@ BEGIN
         CREATE TABLE roles (
             id BIGINT PRIMARY KEY,
             user_id BIGINT,
-            name VARCHAR(100),
-            privileges VARCHAR(100),
+            title VARCHAR(100),
+            privilege VARCHAR(100),
             FOREIGN KEY (user_id) REFERENCES users(id)
         );
     END IF;
@@ -34,6 +34,3 @@ BEGIN
         );
     END IF;
 END $$;
-
--- INSERT INTO users (name, email) VALUES ('Rapunzel', 'rapunzel@hightower.com');
--- INSERT INTO users (name, email) VALUES ('Snow White', 'snowwhite@fairytale.com');
