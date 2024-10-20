@@ -9,5 +9,5 @@
     "srcDir": "./src/",
     "failOnError": false,
     "camelCaseColumnNames": false,
-    "dbUrl": "postgres://dennis:roger_that@localhost:5432/pg_mastery"
+    "dbUrl": "postgres://dennisloska:roger_that@localhost:5432/pg_mastery"
 }
