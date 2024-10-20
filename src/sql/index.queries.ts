@@ -139,3 +139,26 @@ const createCommentsTimestampIndexIR: any = {"usedParamSet":{},"params":[],"stat
 export const createCommentsTimestampIndex = new PreparedQuery<ICreateCommentsTimestampIndexParams,ICreateCommentsTimestampIndexResult>(createCommentsTimestampIndexIR);
 
 
+/** 'CreateCommentsUserCompositeIndex' parameters type */
+export type ICreateCommentsUserCompositeIndexParams = void;
+
+/** 'CreateCommentsUserCompositeIndex' return type */
+export type ICreateCommentsUserCompositeIndexResult = void;
+
+/** 'CreateCommentsUserCompositeIndex' query type */
+export interface ICreateCommentsUserCompositeIndexQuery {
+  params: ICreateCommentsUserCompositeIndexParams;
+  result: ICreateCommentsUserCompositeIndexResult;
+}
+
+const createCommentsUserCompositeIndexIR: any = {"usedParamSet":{},"params":[],"statement":"CREATE INDEX IF NOT EXISTS idx_comments_user_id_id ON comments(user_id, id)"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * CREATE INDEX IF NOT EXISTS idx_comments_user_id_id ON comments(user_id, id)
+ * ```
+ */
+export const createCommentsUserCompositeIndex = new PreparedQuery<ICreateCommentsUserCompositeIndexParams,ICreateCommentsUserCompositeIndexResult>(createCommentsUserCompositeIndexIR);
+
+

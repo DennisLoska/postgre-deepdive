@@ -10,3 +10,5 @@ CREATE INDEX IF NOT EXISTS idx_roles_privilege ON roles(privilege);
 CREATE INDEX IF NOT EXISTS idx_comments_user_id ON comments(user_id);
 /* @name createCommentsTimestampIndex */
 CREATE INDEX IF NOT EXISTS idx_comments_timestamp ON comments(timestamp);
+/* @name createCommentsUserCompositeIndex */
+CREATE INDEX IF NOT EXISTS idx_comments_user_id_id ON comments(user_id, id);
