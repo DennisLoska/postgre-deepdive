@@ -1,5 +1,5 @@
 import { client } from "./client";
-import user from "./user";
+import user from "./queries/user";
 
 async function main() {
     await client.connect();

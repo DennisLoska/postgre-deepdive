@@ -1,12 +1,12 @@
--- for fast lookups
+/* @name createUsersEmailIndex */
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
--- for queries involving date ranges
+/* @name createUsersBirthdateIndex */
 CREATE INDEX IF NOT EXISTS idx_users_birthdate ON users(birthdate);
--- for fast joins with the users table
+/* @name createRolesUserIndex */
 CREATE INDEX IF NOT EXISTS idx_roles_user_id ON roles(user_id);
--- for fast lookups
+/* @name createRolesPrivilegeIndex */
 CREATE INDEX IF NOT EXISTS idx_roles_privilege ON roles(privilege);
--- for fast joins with the users table
+/* @name createCommentsUserIndex */
 CREATE INDEX IF NOT EXISTS idx_comments_user_id ON comments(user_id);
--- for queries involving date ranges
+/* @name createCommentsTimestampIndex */
 CREATE INDEX IF NOT EXISTS idx_comments_timestamp ON comments(timestamp);

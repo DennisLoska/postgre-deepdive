@@ -7,7 +7,7 @@ import {
     findUsersByBirthdate,
     findUsersByYearOfBirth,
     NumberOrString,
-} from "./queries/user.queries";
+} from "./sql/user.queries";
 
 async function getUserByName(user: string, client: Client) {
     const users = await findUserByName.run({ name: user }, client);

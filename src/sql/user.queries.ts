@@ -1,4 +1,4 @@
-/** Types generated for queries found in "src/queries/user.sql" */
+/** Types generated for queries found in "src/sql/user.sql" */
 import { PreparedQuery } from '@pgtyped/runtime';
 
 export type DateOrString = Date | string;
