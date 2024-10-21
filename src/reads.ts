@@ -21,19 +21,25 @@ async function read() {
             queue
                 .run(task, c)
                 .then((res) => {
-                    console.log(`result for task ${c}`);
+                    console.log(`result for task ${res?.id}`);
                 })
                 .catch((error) => {
-                    console.error(`error processing task ${c}:`, error);
+                    console.error(error);
                 });
             c++;
         }
     } catch (error) {
         console.error(error);
     } finally {
-        // TODO: fix early end
+        // NOTE: Would be nice, but does not work with the way I implemented the queue
         // pool.end();
     }
 }
 
 read();
+
+// NOTE: The lib already does this so this is useless
+// process.on("SIGINT", async () => {
+//     await pool.end();
+//     console.log("connection closed");
+// });

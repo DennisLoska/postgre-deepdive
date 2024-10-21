@@ -10,13 +10,12 @@ export class AsyncQueue<T> {
     async run(p: () => Promise<T>, id: number) {
         if (this.pending < this.MAX) {
             this.pending++;
-            console.log(this.pending);
             console.log(`pending: ${this.pending}`);
             try {
                 console.log(`start task: ${id}`);
-                const res = await p();
+                const data = await p();
                 console.log(`finished task: ${id}`);
-                return res;
+                return { data, id };
             } finally {
                 this.pending--;
                 console.log(`pending: ${this.pending}`);
@@ -30,6 +29,7 @@ export class AsyncQueue<T> {
         } else {
             console.log("pushed to queue");
             this.queue.push(p);
+            return { data: undefined, id };
         }
     }
 }
