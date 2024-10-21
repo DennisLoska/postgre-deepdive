@@ -13,6 +13,7 @@ export class AsyncQueue<T> {
     async run(p: () => Promise<T>, id: number) {
         if (this.pending < this.MAX) {
             this.pending++;
+            console.log(`pending: ${this.pending}`);
 
             try {
                 console.log(`start task: ${id}`);
@@ -33,7 +34,6 @@ export class AsyncQueue<T> {
                         console.assert(false, "This should never happen.");
                     }
                 }
-                console.log(`pending: ${this.pending}`);
             }
         } else {
             console.log("pushed to queue");
