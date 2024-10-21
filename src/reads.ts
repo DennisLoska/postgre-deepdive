@@ -12,7 +12,7 @@ async function read() {
         const results: unknown[] = [];
         let c = 1;
         while (c < 10) {
-            const qF = new RandomReadQueryFactory();
+            const qF = new RandomReadQueryFactory(c);
             const task = qF.create();
 
             queue
@@ -24,6 +24,8 @@ async function read() {
                         console.log("all tasks done!");
                         console.log("results:");
                         console.log(results);
+                        console.log("queue results:");
+                        console.log(queue.results);
                         process.exit(0);
                     }
                 })

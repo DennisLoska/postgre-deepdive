@@ -4,6 +4,7 @@ export class AsyncQueue<T> {
     private MAX = 3;
     public pending = 0;
     private queue: Task<T>[] = [];
+    public results: unknown[] = [];
 
     constructor(max: number) {
         this.MAX = max;
@@ -16,7 +17,9 @@ export class AsyncQueue<T> {
             try {
                 console.log(`start task: ${id}`);
                 const data = await p();
+                this.pending--;
                 console.log(`finished task: ${id}`);
+                this.results.push({ data, id });
                 return { data, id };
             } finally {
                 if (this.queue.length > 0) {
@@ -30,7 +33,6 @@ export class AsyncQueue<T> {
                         console.assert(false, "This should never happen.");
                     }
                 }
-                this.pending--;
                 console.log(`pending: ${this.pending}`);
             }
         } else {
