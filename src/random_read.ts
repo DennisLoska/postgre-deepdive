@@ -6,7 +6,8 @@ import { rndUser } from "./random";
 export class RandomReadQueryFactory<T> {
     private queries: Array<() => Promise<T[]>> = [];
 
-    constructor() {
+    constructor(seed: number) {
+        faker.seed(seed);
         const person = rndUser(BigInt(42));
 
         this.queries = [
