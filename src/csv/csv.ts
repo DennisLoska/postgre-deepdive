@@ -1,7 +1,10 @@
 import fs, { WriteStream } from "fs";
 import { random } from "lodash";
-import { rndComment, rndRole, rndUser } from "./random";
+import { rndComment, rndRole, rndUser } from "../random";
 import { rowify } from "./row";
+import { faker } from "@faker-js/faker";
+
+faker.seed(42);
 
 const LIMIT = 20_000_000;
 // const LIMIT = 50_000_000;
