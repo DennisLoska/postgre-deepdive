@@ -1,5 +1,7 @@
 /*
   @name insertComment
-  @param comment -> (id, userId, value)
+  @param comment -> (userId, value)
 */
-INSERT INTO comments (id, user_id, value ) VALUES :comment;
+INSERT INTO comments (user_id, value ) VALUES :comment;
+
+
