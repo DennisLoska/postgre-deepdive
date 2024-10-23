@@ -5,9 +5,9 @@ import {
 } from "./queries";
 import { client } from "./client";
 
-async function applyIndexes() {
+async function createIndexes() {
     await client.connect();
-    const label = "creating indexes";
+    const label = "creating indexes:";
     console.time(label);
 
     try {
@@ -22,4 +22,4 @@ async function applyIndexes() {
     }
 }
 
-applyIndexes();
+createIndexes();

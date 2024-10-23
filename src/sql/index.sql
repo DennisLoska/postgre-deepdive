@@ -12,3 +12,18 @@ CREATE INDEX IF NOT EXISTS idx_comments_user_id ON comments(user_id);
 CREATE INDEX IF NOT EXISTS idx_comments_timestamp ON comments(timestamp);
 /* @name createCommentsUserCompositeIndex */
 CREATE INDEX IF NOT EXISTS idx_comments_user_id_id ON comments(user_id, id);
+
+/* @name dropUsersEmailIndex */
+DROP INDEX IF EXISTS idx_users_email;
+/* @name dropUsersBirthdateIndex */
+DROP INDEX IF EXISTS idx_users_birthdate;
+/* @name dropRolesUserIndex */
+DROP INDEX IF EXISTS idx_roles_user_id;
+/* @name dropRolesPrivilegeIndex */
+DROP INDEX IF EXISTS idx_roles_privilege;
+/* @name dropCommentsUserIndex */
+DROP INDEX IF EXISTS idx_comments_user_id;
+/* @name dropCommentsTimestampIndex */
+DROP INDEX IF EXISTS idx_comments_timestamp;
+/* @name dropCommentsUserCompositeIndex */
+DROP INDEX IF EXISTS idx_comments_user_id_id;

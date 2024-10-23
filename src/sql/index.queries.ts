@@ -162,3 +162,164 @@ const createCommentsUserCompositeIndexIR: any = {"usedParamSet":{},"params":[],"
 export const createCommentsUserCompositeIndex = new PreparedQuery<ICreateCommentsUserCompositeIndexParams,ICreateCommentsUserCompositeIndexResult>(createCommentsUserCompositeIndexIR);
 
 
+/** 'DropUsersEmailIndex' parameters type */
+export type IDropUsersEmailIndexParams = void;
+
+/** 'DropUsersEmailIndex' return type */
+export type IDropUsersEmailIndexResult = void;
+
+/** 'DropUsersEmailIndex' query type */
+export interface IDropUsersEmailIndexQuery {
+  params: IDropUsersEmailIndexParams;
+  result: IDropUsersEmailIndexResult;
+}
+
+const dropUsersEmailIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_users_email"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_users_email
+ * ```
+ */
+export const dropUsersEmailIndex = new PreparedQuery<IDropUsersEmailIndexParams,IDropUsersEmailIndexResult>(dropUsersEmailIndexIR);
+
+
+/** 'DropUsersBirthdateIndex' parameters type */
+export type IDropUsersBirthdateIndexParams = void;
+
+/** 'DropUsersBirthdateIndex' return type */
+export type IDropUsersBirthdateIndexResult = void;
+
+/** 'DropUsersBirthdateIndex' query type */
+export interface IDropUsersBirthdateIndexQuery {
+  params: IDropUsersBirthdateIndexParams;
+  result: IDropUsersBirthdateIndexResult;
+}
+
+const dropUsersBirthdateIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_users_birthdate"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_users_birthdate
+ * ```
+ */
+export const dropUsersBirthdateIndex = new PreparedQuery<IDropUsersBirthdateIndexParams,IDropUsersBirthdateIndexResult>(dropUsersBirthdateIndexIR);
+
+
+/** 'DropRolesUserIndex' parameters type */
+export type IDropRolesUserIndexParams = void;
+
+/** 'DropRolesUserIndex' return type */
+export type IDropRolesUserIndexResult = void;
+
+/** 'DropRolesUserIndex' query type */
+export interface IDropRolesUserIndexQuery {
+  params: IDropRolesUserIndexParams;
+  result: IDropRolesUserIndexResult;
+}
+
+const dropRolesUserIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_roles_user_id"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_roles_user_id
+ * ```
+ */
+export const dropRolesUserIndex = new PreparedQuery<IDropRolesUserIndexParams,IDropRolesUserIndexResult>(dropRolesUserIndexIR);
+
+
+/** 'DropRolesPrivilegeIndex' parameters type */
+export type IDropRolesPrivilegeIndexParams = void;
+
+/** 'DropRolesPrivilegeIndex' return type */
+export type IDropRolesPrivilegeIndexResult = void;
+
+/** 'DropRolesPrivilegeIndex' query type */
+export interface IDropRolesPrivilegeIndexQuery {
+  params: IDropRolesPrivilegeIndexParams;
+  result: IDropRolesPrivilegeIndexResult;
+}
+
+const dropRolesPrivilegeIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_roles_privilege"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_roles_privilege
+ * ```
+ */
+export const dropRolesPrivilegeIndex = new PreparedQuery<IDropRolesPrivilegeIndexParams,IDropRolesPrivilegeIndexResult>(dropRolesPrivilegeIndexIR);
+
+
+/** 'DropCommentsUserIndex' parameters type */
+export type IDropCommentsUserIndexParams = void;
+
+/** 'DropCommentsUserIndex' return type */
+export type IDropCommentsUserIndexResult = void;
+
+/** 'DropCommentsUserIndex' query type */
+export interface IDropCommentsUserIndexQuery {
+  params: IDropCommentsUserIndexParams;
+  result: IDropCommentsUserIndexResult;
+}
+
+const dropCommentsUserIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_comments_user_id"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_comments_user_id
+ * ```
+ */
+export const dropCommentsUserIndex = new PreparedQuery<IDropCommentsUserIndexParams,IDropCommentsUserIndexResult>(dropCommentsUserIndexIR);
+
+
+/** 'DropCommentsTimestampIndex' parameters type */
+export type IDropCommentsTimestampIndexParams = void;
+
+/** 'DropCommentsTimestampIndex' return type */
+export type IDropCommentsTimestampIndexResult = void;
+
+/** 'DropCommentsTimestampIndex' query type */
+export interface IDropCommentsTimestampIndexQuery {
+  params: IDropCommentsTimestampIndexParams;
+  result: IDropCommentsTimestampIndexResult;
+}
+
+const dropCommentsTimestampIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_comments_timestamp"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_comments_timestamp
+ * ```
+ */
+export const dropCommentsTimestampIndex = new PreparedQuery<IDropCommentsTimestampIndexParams,IDropCommentsTimestampIndexResult>(dropCommentsTimestampIndexIR);
+
+
+/** 'DropCommentsUserCompositeIndex' parameters type */
+export type IDropCommentsUserCompositeIndexParams = void;
+
+/** 'DropCommentsUserCompositeIndex' return type */
+export type IDropCommentsUserCompositeIndexResult = void;
+
+/** 'DropCommentsUserCompositeIndex' query type */
+export interface IDropCommentsUserCompositeIndexQuery {
+  params: IDropCommentsUserCompositeIndexParams;
+  result: IDropCommentsUserCompositeIndexResult;
+}
+
+const dropCommentsUserCompositeIndexIR: any = {"usedParamSet":{},"params":[],"statement":"DROP INDEX IF EXISTS idx_comments_user_id_id"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * DROP INDEX IF EXISTS idx_comments_user_id_id
+ * ```
+ */
+export const dropCommentsUserCompositeIndex = new PreparedQuery<IDropCommentsUserCompositeIndexParams,IDropCommentsUserCompositeIndexResult>(dropCommentsUserCompositeIndexIR);
+
+
