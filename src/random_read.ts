@@ -4,7 +4,7 @@ import user from "./queries/user";
 import { rndUser } from "./random";
 
 export class RandomReadQueryFactory<T> {
-    private queries: Array<() => Promise<T[]>> = [];
+    private queries: Array<() => Promise<T>> = [];
 
     constructor(seed: number) {
         faker.seed(seed);
