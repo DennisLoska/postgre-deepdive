@@ -1,8 +1,7 @@
-// TODO: random write factory
-import { pool } from "./client";
+import { pool } from "../client";
 import { faker } from "@faker-js/faker";
 import { rndComment } from "./random";
-import { createComment } from "./queries/comment";
+import { createComment } from "../queries/comment";
 
 export class RandomWriteQueryFactory<T> {
     private queries: Array<() => Promise<T>> = [];

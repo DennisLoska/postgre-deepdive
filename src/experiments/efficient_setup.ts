@@ -1,7 +1,7 @@
 import fs from "fs";
 import random from "lodash/random";
-import { rndComment, rndUser } from "../random";
-import { rowify } from "../row";
+import { rndComment, rndUser } from "../random/random";
+import { rowify } from "../csv/row";
 
 // const LIMIT = 20_000_000;
 const LIMIT = 10_000_000;

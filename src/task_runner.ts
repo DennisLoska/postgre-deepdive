@@ -13,6 +13,7 @@ export function taskRunner<T>(
 ) {
     console.time("taskRunner");
 
+    // might blow up
     const results: unknown[] = [];
     let c = 1;
 
@@ -38,5 +39,6 @@ export function taskRunner<T>(
             });
         c++;
     }
+
     return results;
 }
