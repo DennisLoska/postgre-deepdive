@@ -14,15 +14,15 @@ export class AsyncQueue<T> {
         this.MAX = max;
     }
 
-    run<T>(t: Task<T>) {
+    private run<T>(t: Task<T>) {
         const { task, res, rej, id } = t;
-        console.log(`finished task: ${id}`);
         task()
             .then(res, rej)
             .finally(() => {
                 this.pending--;
+                console.log(`finished task: ${id}`);
                 if (this.queue.length > 0) {
-                    console.log(`finished task: ${id}`);
+                    console.log("\n");
                     const next = this.queue.shift();
                     if (next) {
                         console.log(
