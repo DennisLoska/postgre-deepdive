@@ -13,7 +13,7 @@ function task(value) {
 }
 
 async function main() {
-    console.time();
+    console.time("queueTest");
     const res1 = queue.enqueue(() => task("m1"), 1);
     queue.enqueue(() => task("m2"), 2);
     queue.enqueue(() => task("m3"), 3);
@@ -31,7 +31,7 @@ async function main() {
 
     // same as above
     const value = await res1;
-    console.timeEnd();
+    console.timeEnd("queueTest");
     console.log("the non-blocking end");
     console.log("final value", value);
 }

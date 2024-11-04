@@ -1,6 +1,6 @@
-import { AsyncQueue } from "./async_queue";
-import { RandomReadQueryFactory } from "./random_read";
-import { RandomWriteQueryFactory } from "./random_write";
+import { AsyncQueue } from "./async/async_queue";
+import { RandomReadQueryFactory } from "./random/random_read";
+import { RandomWriteQueryFactory } from "./random/random_write";
 
 type QueryFactory<T> =
     | typeof RandomReadQueryFactory<T>
@@ -11,7 +11,7 @@ export function taskRunner<T>(
     queue: AsyncQueue<T>,
     taskCount: number,
 ) {
-    console.time("execute tasks:");
+    console.time("taskRunner");
 
     const results: unknown[] = [];
     let c = 1;
@@ -21,7 +21,7 @@ export function taskRunner<T>(
         const task = qF.create();
 
         queue
-            .run(task, c)
+            .enqueue(task, c)
             .then((res) => {
                 console.log(`result for task ${res?.id}`);
                 results.push(res);
@@ -29,9 +29,7 @@ export function taskRunner<T>(
                     console.log("all tasks done!");
                     console.log("results:");
                     console.log(results);
-                    console.log("queue results:");
-                    console.log(queue.results);
-                    console.timeEnd("read tasks");
+                    console.timeEnd("taskRunner");
                     process.exit(0);
                 }
             })

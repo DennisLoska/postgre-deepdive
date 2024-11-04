@@ -1,6 +1,6 @@
 import { pool } from "./client";
-import { AsyncQueue } from "./async_queue";
-import { RandomReadQueryFactory } from "./random_read";
+import { AsyncQueue } from "./async/async_queue";
+import { RandomReadQueryFactory } from "./random/random_read";
 import { taskRunner } from "./task_runner";
 
 async function read() {
