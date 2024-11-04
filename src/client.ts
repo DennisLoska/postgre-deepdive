@@ -2,7 +2,7 @@ import { Pool, Client } from "pg";
 
 export const pool = new Pool({
     host: "localhost",
-    user: "dennisloska",
+    user: "dennis",
     password: "roger_that",
     database: "pg_mastery",
     min: 0,
@@ -13,7 +13,7 @@ export const pool = new Pool({
 
 export const client = new Client({
     host: "localhost",
-    user: "dennisloska",
+    user: "dennis",
     password: "roger_that",
     database: "pg_mastery",
 });
