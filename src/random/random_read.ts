@@ -1,6 +1,6 @@
-import { pool } from "./client";
+import { pool } from "../client";
 import { faker } from "@faker-js/faker";
-import user from "./queries/user";
+import user from "../queries/user";
 import { rndUser } from "./random";
 
 export class RandomReadQueryFactory<T> {
