@@ -1,6 +1,6 @@
 type Task<T> = {
     task: () => Promise<T>;
-    cb: (value: unknown) => void;
+    cb: (error: unknown, value: unknown) => void;
     id: number;
 };
 
@@ -15,8 +15,12 @@ export class CallbackQueue<T> {
 
     private run<T>(t: Task<T>) {
         const { task, cb, id } = t;
+        // TODO: also refactor to be callback based
         task()
-            .then((value) => cb(value))
+            .then(
+                (value) => cb(null, value),
+                (error) => cb(error, null),
+            )
             .finally(() => {
                 this.pending--;
                 console.log(`finished task: ${id}`);
@@ -35,7 +39,11 @@ export class CallbackQueue<T> {
             });
     }
 
-    enqueue(p: () => Promise<T>, id: number, cb: (value: unknown) => void) {
+    enqueue(
+        p: () => Promise<T>,
+        id: number,
+        cb: (error: unknown, value: unknown) => void,
+    ) {
         if (this.pending < this.MAX) {
             this.pending++;
             console.log(`pending: ${this.pending}`);
@@ -67,7 +75,10 @@ const ids = [1, 2, 3, 4, 5];
 
 console.log("Start queue...");
 for (let i = 0; i < tasks.length; i++) {
-    callbackQueue.enqueue(tasks[i], ids[i], (value) => {
+    callbackQueue.enqueue(tasks[i], ids[i], (error, value) => {
         console.log("callback result: ", value);
+        if (error !== null) {
+            console.log(value);
+        } else console.log(error);
     });
 }
